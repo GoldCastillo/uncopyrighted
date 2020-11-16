@@ -16,7 +16,7 @@
 	<description>uncopyrighted-web-page</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>9</java.version>
 		<groovy.version>3.0.4</groovy.version>
 
 
