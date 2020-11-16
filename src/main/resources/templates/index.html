@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
-	layout:decorate="~{fragments/main_layout}">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Uncopyrighted materials</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<div layout:fragment="content" class="container">
@@ -17,11 +20,7 @@
 				use.</p>
 		</div>
 
-		<div class="col-md-4" style="padding: 20px 0">
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
-			</form>
-		</div>
+
 	</div>
 </body>
 </html>

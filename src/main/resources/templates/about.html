@@ -1,21 +1,19 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/main_layout}">
 <head>
-    <title>Spring Boot Thymeleaf + Spring Security</title>
+<title>Spring Boot Thymeleaf + Spring Security</title>
 </head>
 <body>
-<div layout:fragment="content" class="container">
+	<div layout:fragment="content" class="container">
 
-    <div class="jumbotron">
-        <h1>About uncopyrighted</h1>
-        <p>This page is created for users to easily download uncopyrighted materials. This site is completely free. Enjoy </p>
-    </div>
-    
-    <div class="col-md-4" style="padding:20px 0">
-		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
-		</form>
+		<div class="jumbotron">
+			<h1>About uncopyrighted</h1>
+			<p>This page is created for users to easily download
+				uncopyrighted materials. This site is completely free. Enjoy</p>
+		</div>
+
+
 	</div>
-</div>
 </body>
 </html>

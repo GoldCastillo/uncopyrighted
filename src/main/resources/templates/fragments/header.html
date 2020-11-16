@@ -1,28 +1,34 @@
 <header th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Uncopyrighted.com</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
+	<!-- Static navbar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Uncopyrighted.com</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="./">Music <span class="sr-only">(current)</span></a></li>
-                    
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-    </nav>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/music">Music<span class="sr-only">(current)</span></a></li>
+					<li><form th:action="@{/logout}" method="post"><button type="submit" class="btn btn-default navbar-btn navbar-link">Log out</button></form></li>
+				</ul>
+
+
+
+
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		<!--/.container-fluid -->
+	</nav>
 </header>
