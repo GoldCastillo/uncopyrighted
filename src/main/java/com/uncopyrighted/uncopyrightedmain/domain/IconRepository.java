@@ -1,7 +1,9 @@
 package com.uncopyrighted.uncopyrightedmain.domain;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface IconRepository extends CrudRepository<Icon, Long> {
-	Icon findByName(String name);
+	 List<Icon> findByName(String name);
 }

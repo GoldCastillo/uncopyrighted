@@ -1,7 +1,9 @@
 package com.uncopyrighted.uncopyrightedmain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -20,8 +22,9 @@ public class IconRepositoryTest {
 
 	@Test
 	public void findByNameShouldReturnIcon() {
-		Icon icon = iconrepository.findByName("Wifi");
-		assertThat(icon).isNotNull();
+		List<Icon> icons = iconrepository.findByName("Wifi");
+		assertThat(icons).hasSize(1);
+		assertThat(icons.get(0).getFile()).isEqualTo("/uncopyrighted-main/src/main/resources/templates/Icons/wifi.jpg");
 	}
 
 	@Test
@@ -34,9 +37,9 @@ public class IconRepositoryTest {
 
 	@Test
 	public void DeleteIcon() {
-		Icon icon = iconrepository.findByName("Wifi");
-		iconrepository.deleteById(icon.getIconid());
-		Icon deletedIcon = iconrepository.findByName("Wifi");
-		assertThat(deletedIcon).isNull();
+		List <Icon> icon = iconrepository.findByName("Wifi");
+		iconrepository.deleteById(icon.get(0).getIconid());
+		List <Icon> deletedIcon = iconrepository.findByName("Wifi");
+		assertThat(deletedIcon).hasSize(0);
 	}
 }

@@ -14,14 +14,14 @@ import com.uncopyrighted.uncopyrightedmain.domain.PictureRepository;
 
 @DataJpaTest
 public class PictureRepositoryTest {
-
 	@Autowired
 	private PictureRepository picturerepository;
 
 	@Test
 	public void findByNameShouldReturnPicture() {
-		Picture picture = picturerepository.findByName("Dog");
-		assertThat(picture).isNotNull();
+		List<Picture> pictures = picturerepository.findByName("Street");
+		assertThat(pictures).hasSize(1);
+		assertThat(pictures.get(0).getFile()).isEqualTo("/uncopyrighted-main/src/main/resources/templates/pictures/street-picture.jpeg");
 	}
 
 	@Test
@@ -34,9 +34,10 @@ public class PictureRepositoryTest {
 
 	@Test
 	public void DeletePicture() {
-		Picture picture = picturerepository.findByName("Dog");
-		picturerepository.deleteById(picture.getPictureid());
-		Picture deletedPicture = picturerepository.findByName("Dog");
-		assertThat(deletedPicture).isNull();
+		List <Picture> picture = picturerepository.findByName("Street");
+		picturerepository.deleteById(picture.get(0).getPictureid());
+		List <Picture> deletedPicture = picturerepository.findByName("Street");
+		assertThat(deletedPicture).hasSize(0);
 	}
 }
+

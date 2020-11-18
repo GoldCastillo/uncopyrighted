@@ -1,7 +1,9 @@
 package com.uncopyrighted.uncopyrightedmain.domain;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface SongRepository extends CrudRepository<Song, Long> {
-	Song findByName(String name);
+	 List<Song> findByName(String name);
 }

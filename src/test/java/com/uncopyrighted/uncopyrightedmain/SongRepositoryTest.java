@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.uncopyrighted.uncopyrightedmain.domain.Song;
 import com.uncopyrighted.uncopyrightedmain.domain.SongRepository;
+import com.uncopyrighted.uncopyrightedmain.domain.Song;
+import com.uncopyrighted.uncopyrightedmain.domain.SongRepository;
 
 
 
@@ -20,23 +22,23 @@ public class SongRepositoryTest {
 
 	@Test
 	public void findByNameShouldReturnSong() {
-		Song song = songrepository.findByName("Glitcher");
-		assertThat(song).isNotNull();
+		List<Song> songs = songrepository.findByName("Glitcher");
+		assertThat(songs).hasSize(1);
+		assertThat(songs.get(0).getFile()).isEqualTo("/uncopyrighted-main/src/main/resources/templates/music/joe-crotty-glitcher.mp3");
 	}
 
 	@Test
 	public void createNewSong() {
-		Song song= new Song("San Pedro", "Tubebackr", 2020, "electronica / dance (edm)", "/uncopyrighted-main/src/main/resources/templates/music/tubebackr-san-pedro.mp3");
-				
+		Song song= new Song("San Pedro", "Tubebackr", 2020, "electronica / dance (edm)", "/uncopyrighted-main/src/main/resources/templates/music/tubebackr-san-pedro.mp3");			
 		songrepository.save(song);
 		assertThat(song.getSongid()).isNotNull();
 	}
 
 	@Test
 	public void DeleteSong() {
-		Song song = songrepository.findByName("Glitcher");
-		songrepository.deleteById(song.getSongid());
-		Song deletedSong = songrepository.findByName("Glitcher");
-		assertThat(deletedSong).isNull();
+		List <Song> song = songrepository.findByName("Glitcher");
+		songrepository.deleteById(song.get(0).getSongid());
+		List <Song> deletedSong = songrepository.findByName("Glitcher");
+		assertThat(deletedSong).hasSize(0);
 	}
 }
