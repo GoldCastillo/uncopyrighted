@@ -11,24 +11,35 @@ public class Picture {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long pictureid;
 	private String name;
 	private String subject;
 	private String file;
+	
+	
 	public Picture(String name, String subject, String file) {
 		super();
 		this.name = name;
 		this.subject = subject;
 		this.file = file;
 	}
+	public Picture(long pictureid, String name, String subject, String file) {
+		super();
+		this.pictureid = pictureid;
+		this.name = name;
+		this.subject = subject;
+		this.file = file;
+		
+		
+	}
 	public Picture() {
 		super();
 	}
-	public long getId() {
-		return id;
+	public long getPictureid() {
+		return pictureid;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setPictureid(long pictureid) {
+		this.pictureid = pictureid;
 	}
 	public String getName() {
 		return name;
@@ -50,8 +61,10 @@ public class Picture {
 	}
 	@Override
 	public String toString() {
-		return "Picture [id=" + id + ", name=" + name + ", subject=" + subject + ", file=" + file + "]";
+		return "Picture [pictureid=" + pictureid + ", name=" + name + ", subject=" + subject + ", file=" + file + "]";
 	}
+	
+	
 	
 	
 	

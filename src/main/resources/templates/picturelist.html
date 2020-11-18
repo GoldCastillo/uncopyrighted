@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/main_layout}"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Pictures</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="jumbotron">
+
+			<h3>Uncopyrighted pictures</h3>
+
+
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th>Name</th>
+						<th>subject</th>
+						<th>download</th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+
+					</tr>
+					<tr th:each="picture : ${pictures}">
+						<td th:text="${picture.name}"></td>
+						<td th:text="${picture.subject}"></td>
+						<td th:text="${picture.file}"></td>
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/editpicture/{id}(id=${picture.pictureid})}"
+							class="btn btn-default">Edit</a></td>
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/deletepicture/{id}(id=${picture.pictureid})}"
+							class="btn btn-default">Delete</a></td>
+
+
+					</tr>
+
+
+				</tbody>
+
+			</table>
+			<a href="/addpicture" class="btn btn-default" sec:authorize="hasAuthority('ADMIN')">Add picture</a>
+		</div>
+
+
+	</div>
+
+
+	</div>
+
+</body>
+</html>

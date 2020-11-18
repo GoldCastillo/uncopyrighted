@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<title>Icons</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="jumbotron">
+
+			<h3>Uncopyrighted icons</h3>
+
+
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th>Name</th>
+						<th>download</th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+
+					</tr>
+					<tr th:each="icon : ${icons}">
+						<td th:text="${icon.name}"></td>
+						<td th:text="${icon.file}"></td>
+
+
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/editicon/{id}(id=${icon.iconid})}"
+							class="btn btn-default">Edit</a></td>
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/deleteicon/{id}(id=${icon.iconid})}"
+							class="btn btn-default">Delete</a></td>
+
+
+
+					</tr>
+
+
+				</tbody>
+
+			</table>
+			<a href="/addicon" class="btn btn-default" sec:authorize="hasAuthority('ADMIN')">Add icon</a>
+		</div>
+
+
+	</div>
+
+
+	
+
+</body>
+</html>

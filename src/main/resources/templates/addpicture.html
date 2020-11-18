@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/main_layout}"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Add picture</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<h2>Add Picture</h2>
+		<div class="input-group mb-3">
+			<form th:object="${picture}" th:action="@{savepicture}" action="#"
+				method="post">
+				<div style="clear: both; display: block; height: 10px;">
+					<label for="name">Name</label> <input type="text" id="name"
+						th:field="*{name}" class="form-control" />
+				</div>
+
+				<div style="clear: both; display: block; height: 10px;">
+					<label for="subject">Subject</label> <input type="text" id="artist"
+						th:field="*{subject}" class="form-control" />
+				</div>
+
+				<div style="clear: both; display: block; height: 10px;">
+
+					<label for="file">File</label> <input type="text" id="file"
+						th:field="*{file}" class="form-control" />
+				</div>
+				<div style="clear: both; display: block; height: 10px;">
+
+					<input type="submit" class="btn btn-default" value="Save"></input>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

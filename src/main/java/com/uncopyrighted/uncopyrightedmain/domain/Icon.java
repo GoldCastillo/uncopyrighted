@@ -10,22 +10,14 @@ public class Icon {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long iconid;
 	private String name;
 	private String file;
-	public Icon(String name, String file) {
-		super();
-		this.name = name;
-		this.file = file;
+	public long getIconid() {
+		return iconid;
 	}
-	public Icon() {
-		super();
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIconid(long iconid) {
+		this.iconid = iconid;
 	}
 	public String getName() {
 		return name;
@@ -39,10 +31,27 @@ public class Icon {
 	public void setFile(String file) {
 		this.file = file;
 	}
+	public Icon(long iconid, String name, String file) {
+		super();
+		this.iconid = iconid;
+		this.name = name;
+		this.file = file;
+	}
+	
+	public Icon(String name, String file) {
+		super();
+		this.name = name;
+		this.file = file;
+	}
+	public Icon() {
+		super();
+	}
 	@Override
 	public String toString() {
-		return "Icon [id=" + id + ", name=" + name + ", file=" + file + "]";
+		return "Icon [iconid=" + iconid + ", name=" + name + ", file=" + file + "]";
 	}
+	
+	
 	
 	
 }

@@ -10,8 +10,8 @@ public class User {
 
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Id", nullable = false, updatable = false)
-	private long Id;
+	@Column(name = "userid", nullable = false, updatable = false)
+	private long userid;
 
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
@@ -37,12 +37,12 @@ public class User {
 
 	}
 
-	public long getId() {
-		return Id;
+	public long getUserid() {
+		return userid;
 	}
 
-	public void setId(long Id) {
-		this.Id = Id;
+	public void setId(long userid) {
+		this.userid = userid;
 	}
 
 	public String getUsername() {

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/main_layout}"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Music</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="jumbotron">
+
+			<h3>Uncopyrighted music</h3>
+
+
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th>Name</th>
+						<th>Artist</th>
+						<th>Released</th>
+						<th>Genre</th>
+						<th>Download</th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+						<th sec:authorize="hasAuthority('ADMIN')"></th>
+
+					</tr>
+					<tr th:each="song : ${songs}">
+						<td th:text="${song.name}"></td>
+						<td th:text="${song.artist}"></td>
+						<td th:text="${song.released}"></td>
+						<td th:text="${song.genre}"></td>
+						<td th:text="${song.file}"></td>
+
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/editsong/{id}(id=${song.songid})}"
+							class="btn btn-default">Edit</a></td>
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/deletesong/{id}(id=${song.songid})}"
+							class="btn btn-default">Delete</a></td>
+
+					</tr>
+
+
+				</tbody>
+
+			</table>
+			<a href="/addsong" class="btn btn-default" sec:authorize="hasAuthority('ADMIN')">Add song</a>
+		</div>
+
+
+	</div>
+
+
+	</div>
+
+</body>
+</html>

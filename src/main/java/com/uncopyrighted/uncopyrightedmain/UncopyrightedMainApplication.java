@@ -55,7 +55,7 @@ public class UncopyrightedMainApplication {
 			
 			
 			//Pictures
-			Picture picture1 = new Picture("Street", "City", "/uncopyrighted-main/src/main/resources/templates/pictures/street-picture.jpeg");
+			Picture picture1 = new Picture("Street", "City", "https://cdn.pixabay.com/photo/2020/09/05/22/29/cliff-5547648_1280.jpg");
 			Picture picture2 = new Picture("City-Urban", "City", "/uncopyrighted-main/src/main/resources/templates/pictures/city-Urban.jpeg");
 			Picture picture3 = new Picture("Dog", "Animal", "/uncopyrighted-main/src/main/resources/templates/pictures/dog.jpeg");
 			Picture picture4 = new Picture("Mountain", "Landscape", "/uncopyrighted-main/src/main/resources/templates/pictures/mountain.jpeg");
